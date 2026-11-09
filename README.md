@@ -41,7 +41,7 @@ This is an aggregate composition result. It does not give a uniform random assig
 
 The source's Theorem 5.2 addresses a fixed woman's probability of matching to a men's tier. Remark H.1 asks for the realized market-wide table to concentrate. Expected proportions alone do not establish that conclusion: many outcomes can move together. The proof must control the dependence created by the proposal process.
 
-The formal proof constructs independent exponential-arrival streams with exactly the original ranking law. It proves the fixed-woman proposal-count estimate needed from Proposition G.2, uniformly over the allowed rounded populations. It then couples actual outcomes to independent reference outcomes. Concentration of the reference averages and a vanishing coupling error yield the claimed table. [The proof guide](docs/proof-guide.md) explains these steps and links them to the Lean modules.
+The formal proof constructs independent exponential-arrival streams with exactly the original ranking law. It proves the fixed-woman proposal-count estimate needed from Proposition G.2, uniformly over the allowed rounded populations. It then couples actual outcomes to independent reference outcomes. Concentration of the reference averages and a vanishing coupling error yield the claimed table. [The expanded proof guide](docs/proof-guide.md) states the decisive estimates and derives the result, including the rounding argument, coupling calculation, and final probability bound, with links to the Lean proofs.
 
 ## Supporting results
 
@@ -60,7 +60,7 @@ These are supporting results in the Lean library. The main theorem selected by [
 No knowledge of Lean is needed to read the explanation above. For further detail:
 
 - [Exact statement and correspondence with the source](docs/statement.md): assumptions, rounding, probability law, and Lean notation.
-- [Proof guide](docs/proof-guide.md): the mathematical architecture and where each step is proved.
+- [Expanded proof guide](docs/proof-guide.md): the mathematical argument, quantitative estimates, and their Lean references.
 - [Provenance and production account](docs/provenance.md): sources, attribution, review, and scope.
 - [Literature context](docs/literature.md): the concentration question and related results.
 - [Challenge.lean](Challenge.lean): the complete auditable model and theorem statement; imports Mathlib alone.
