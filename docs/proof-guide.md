@@ -90,7 +90,7 @@ Let $`R_m`$ be man $`m`$'s number of genuine, distinct proposals and let $`S\tri
 ```math
 \left|\mathbb ES-W\log n\right|\le C_0n,
 \qquad
-\operatorname{Var}(S)\le C_1n^2\log n,
+\mathrm{Var}(S)\le C_1n^2\log n,
 \qquad
 \mathbb ER\le C_2(\log n)^3,
 ```
@@ -100,7 +100,7 @@ and, for all men $`m,k`$,
 ```math
 \left|v_m\mathbb ER_m-v_k\mathbb ER_k\right|\le K_0,
 \qquad
-\operatorname{Cov}(R_m,R_k)\ge-C_3\log n\quad(m\ne k).
+\mathrm{Cov}(R_m,R_k)\ge-C_3\log n\quad(m\ne k).
 ```
 
 The raw clock also satisfies
@@ -125,7 +125,7 @@ For the pair estimates, the formal proof exposes a partial matching before inser
 The direction of the covariance estimate matters. If the conditional means are $`G(H)/v_m+e_m(H)`$ and $`G(H)/v_k+e_k(H)`$, with bounded errors and $`G(H)=O(\log n)`$, the covariance of these means contains
 
 ```math
-\frac{\operatorname{Var}(G(H))}{v_mv_k}\ge0.
+\frac{\mathrm{Var}(G(H))}{v_mv_k}\ge0.
 ```
 
 The cross terms involving the bounded errors are $`O(\log n)`$. Thus this common-mean variance can be retained to obtain a lower covariance bound. No unconditional small upper covariance is needed in the next step.
@@ -163,16 +163,16 @@ Combining this with the total mean estimate gives $`|\mathbb EU_M-t_M|\le Cn`$ f
 For variance, put $`V_M\triangleq S-U_M`$. The lower pair covariance bound yields
 
 ```math
-\operatorname{Cov}(U_M,V_M)
+\mathrm{Cov}(U_M,V_M)
 \ge-C_3|M||M^c|\log n\ge-C_3n^2\log n.
 ```
 
-Because $`\operatorname{Var}(V_M)\ge0`$,
+Because $`\mathrm{Var}(V_M)\ge0`$,
 
 ```math
-\operatorname{Var}(U_M)
-=\operatorname{Var}(S)-\operatorname{Var}(V_M)
- -2\operatorname{Cov}(U_M,V_M)
+\mathrm{Var}(U_M)
+=\mathrm{Var}(S)-\mathrm{Var}(V_M)
+ -2\mathrm{Cov}(U_M,V_M)
 \le(C_1+2C_3)n^2\log n.
 ```
 
@@ -318,7 +318,7 @@ Y_{ij}^{(n)}\triangleq\frac1n\sum_{w\in W_i^{(n)}}
 Then $`\mathbb EY_{ij}^{(n)}=(|W_i^{(n)}|/n)r_{ij}^{(n)}\to a_i b_j`$. Independence and the Bernoulli variance bound give
 
 ```math
-\operatorname{Var}(Y_{ij}^{(n)})
+\mathrm{Var}(Y_{ij}^{(n)})
 \le\frac{|W_i^{(n)}|}{4n^2}\le\frac1{4n}.
 ```
 
@@ -345,7 +345,7 @@ On $`G_w^{(n)}(\eta)`$, the actual used set lies between $`A_i^-`$ and $`A_i^+`$
 
 ```math
 Q_w^{(n)}(\eta)\triangleq
-\{\operatorname*{argmin}_{A_i^+}E_w\notin A_i^-\}.
+\{\arg\min_{x\in A_i^+}E_{w,x}\notin A_i^-\}.
 ```
 
 For deterministic nested sets, the race identity gives the exact shell probability
@@ -388,7 +388,7 @@ Fix $`\varepsilon>0`$. Eventually $`|\mathbb EY_{ij}^{(n)}-a_i b_j|\le\varepsilo
 &\le\Pr_n\bigl(|F_{ij}^{(n)}-Y_{ij}^{(n)}|>\varepsilon/3\bigr)
  +\Pr_n\bigl(|Y_{ij}^{(n)}-\mathbb EY_{ij}^{(n)}|>\varepsilon/3\bigr)\\
 &\le\frac{3e_n}{\varepsilon}
- +\frac{9\operatorname{Var}(Y_{ij}^{(n)})}{\varepsilon^2}\\
+ +\frac{9\mathrm{Var}(Y_{ij}^{(n)})}{\varepsilon^2}\\
 &\le\frac{3e_n}{\varepsilon}+\frac{9}{4n\varepsilon^2}
 \longrightarrow0.
 \end{aligned}
