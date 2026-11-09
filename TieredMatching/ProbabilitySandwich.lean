@@ -16,6 +16,7 @@ limitations under the License.
 module
 
 public import TieredMatching.Sandwich
+public import Mathlib.MeasureTheory.Measure.Basic
 
 /-! # The prefix sandwich outside null sets of tied exponential priorities -/
 
