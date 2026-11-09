@@ -1,0 +1,19 @@
+Concentration of match types in tiered random matching markets
+
+The finite market definitions and conjecture statement are derived from
+google-deepmind/formal-conjectures, PR 7841, commit
+9f2a84284e69f992c113f894869cd7cdf292390f.
+Copyright 2026 The Formal Conjectures Authors.
+Licensed under the Apache License, Version 2.0.
+
+The Lean proof development is included in Ashlagi/. Original copyright
+headers are preserved. Repository documentation and submission packaging
+are by Bo Cowgill, with Codex assistance in formalizing the proof in Lean.
+
+The mathematical source is Ashlagi, Braverman, Saberi, Thomas and Zhao,
+Tiered Random Matching Markets: Rank Is Proportional to Popularity (2021),
+arXiv:2009.05124v2. Citing this source does not relicense the paper.
+
+The source-checking and metadata-validation scripts are adapted from
+PalomarRegistry/PalomarTemplate (Apache-2.0). Mathlib and other external
+dependencies retain their own copyright and license notices.

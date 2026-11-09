@@ -1,0 +1,26 @@
+{
+  "repository": "google-deepmind/formal-conjectures",
+  "commit": "9f2a84284e69f992c113f894869cd7cdf292390f",
+  "files": [
+    {
+      "path": "FormalConjectures/Arxiv/2009.05124/TieredRandomMatching.lean",
+      "snapshot": "provenance/TieredRandomMatching.lean.txt",
+      "sha256": "0468a9c6873052d72158a569a8cacf34be94213ad6439a35c380cf18b99f3a02"
+    },
+    {
+      "path": "FormalConjecturesForMathlib/Combinatorics/StableMarriage.lean",
+      "snapshot": "provenance/StableMarriage.lean.txt",
+      "sha256": "07f3f0be524cac25bdadca8c31862332dfb8b9c6e5d1460194fa85723cfb4807"
+    },
+    {
+      "path": "FormalConjecturesForMathlib/Combinatorics/StableMarriage/DeferredAcceptance.lean",
+      "snapshot": "provenance/DeferredAcceptance.lean.txt",
+      "sha256": "4b740a156ed8102582547c09799e8df47c40711183e3867dfb2bbba596774fb2"
+    },
+    {
+      "path": "FormalConjecturesForMathlib/Combinatorics/RandomRanking.lean",
+      "snapshot": "provenance/RandomRanking.lean.txt",
+      "sha256": "96364f84108f55c4cb664bb9e17520bd2093934650929ba0a71959a928cd4a92"
+    }
+  ]
+}

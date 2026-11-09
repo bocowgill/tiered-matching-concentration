@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+
+project:
+  name: Concentration of match types in tiered random matching markets
+  description: >-
+    We prove concentration of the realized table of matches in balanced tiered
+    random matching markets under men-proposing deferred acceptance. With fixed
+    finite tier counts, positive population shares a_i and b_j, and fixed
+    positive public scores, every participant independently draws a complete
+    ranking by weighted sampling without replacement. The fraction of all
+    couples joining women's tier i to men's tier j converges in probability to
+    a_i b_j. The theorem allows arbitrary tier-label sequences whose counts
+    differ from n times their prescribed shares by at most one. It proves the
+    exact statement of Formal Conjectures PR 7841, corresponding to Remark H.1
+    of Ashlagi, Braverman, Saberi, Thomas and Zhao (2021). The development proves
+    the exponential-arrival representation of the exact profile law, the
+    fixed-woman proposal estimate needed from Proposition G.2 with rounding
+    uniformity, and the independent reference coupling used for concentration.
+    A paper presenting the proof is forthcoming.
+  authors: [Bo Cowgill]
+  responsible_maintainers: [Bo Cowgill]
+  license: Apache-2.0
+
+classification:
+  arxiv: [cs.GT, math.PR, econ.TH]
+  msc2020: [91B68, 60C05, 05A05]
+
+sources:
+  - title: "Tiered Random Matching Markets: Rank Is Proportional to Popularity"
+    authors: [Itai Ashlagi, Mark Braverman, Amin Saberi, Clayton Thomas, Geng Zhao]
+    id: https://arxiv.org/abs/2009.05124v2
+    type: paper
+    location: Definition 2.2 and footnote 5; Theorem 5.2; Proposition G.2; Remark H.1
+    relationship: adapts
+    note: >-
+      Proves the realized-table concentration conjecture in Remark H.1, extending
+      the source's fixed-agent conclusion. Formalizes the needed proposal-process
+      estimates and makes uniformity over rounded populations explicit.
+      No priority claim over all subsequent literature is made.
+  - title: College Admissions and the Stability of Marriage
+    authors: [David Gale, Lloyd S. Shapley]
+    id: https://doi.org/10.2307/2312726
+    type: paper
+    relationship: background
+    note: Source of deferred acceptance and the stable matching framework.
+  - title: Analysis of Random Models for Stable Matchings
+    authors: [Sylvain Mauras]
+    id: https://www.irif.fr/~mauras/thesis/thesis.pdf
+    type: other
+    location: Definition 3.2
+    relationship: background
+    note: Reference supplied by the reused weighted-ranking module.
+  - title: The Average Number of Stable Matchings
+    authors: [Boris Pittel]
+    id: https://doi.org/10.1137/0402048
+    type: paper
+    relationship: background
+    note: Classical uniform random-market analysis; see docs/literature.md.
+
+related_formalizations:
+  - id: https://github.com/google-deepmind/formal-conjectures/pull/7841
+    relationship: builds-on
+    note: >-
+      Uses the exact statement and finite model at commit
+      9f2a84284e69f992c113f894869cd7cdf292390f, with a Lean 4.35 compatibility
+      port. The original admitted theorem is not a proof dependency. The complete
+      substantive proof is included in this repository, rather than supplied
+      by an external wrapper dependency.
+
+status:
+  scope: >-
+    Proves cellwise convergence in probability for the exact PR model and all
+    allowed rounded sequences. Includes the exact-law identity and the relevant
+    fixed-woman part of G.2. The recorded theorem is for men-proposing deferred
+    acceptance in balanced one-to-one complete-list markets with fixed positive
+    parameters. It does not assert a finite-market rate, almost-sure convergence,
+    or a result for every stable matching. The final proof has no unresolved
+    formal obligations. A paper presenting the proof is forthcoming.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+  main_results:
+    - declaration: Arxiv.«2009.05124».match_type_concentration
+      file: Solution.lean
+      sorry_count: 0
+      axioms: [propext, Classical.choice, Quot.sound]
+      comparator_config: comparator.json
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: agent
+      framework: Codex
+      tool_setup: >-
+        Codex assisted with Lean formalization, Mathlib search, compiler-guided
+        checking, and probability-law and statement-alignment audits using Lean
+        4, Mathlib, and local build tools.
+      prompting_notes: >-
+        Formalize the exact PR statement, verify the exponential-arrival law,
+        and discharge the G.2 estimate with the required rounding uniformity.
+      cost:
+        wall_time: not tracked
+        spend_usd: not tracked
+    - method: agent
+      framework: Codex
+      tool_setup: >-
+        Automated review of the exact law, continuation and moment bounds,
+        rounding quantifiers, and endpoint composition; independent of the
+        compiler's kernel check. This is not human peer review.
+  notes: >-
+    Codex helped me formalize the proof in Lean. Bo Cowgill is the responsible
+    human author and maintainer. A paper presenting the proof is forthcoming.
+
+fidelity:
+  divergences: >-
+    No mathematical divergence from the PR statement. The PR expresses the
+    source's multiplicative concentration as additive normalized concentration;
+    these are equivalent for fixed positive tier shares. Integer rounding is
+    explicit. A Lean 4.35 port replaces obsolete interfaces, including expressing
+    the uniform PMF with reciprocal-cardinality masses. See docs/statement.md
+    and docs/provenance.md.
+
+review:
+  status: agent-reviewed
+  reviewers: [Codex]
+  notes: >-
+    Automated mathematical and source-alignment audits were performed during
+    formalization. Lean checks the proof; Comparator checks the independent
+    statement. No independent human peer-review endorsement or Palomar
+    registration is claimed. See docs/provenance.md.
+
+alignment:
+  namespace: Arxiv.«2009.05124»
+  statements:
+    - source: "Ashlagi et al. (2021), Remark H.1; exact statement in Formal Conjectures PR 7841"
+      lean: Arxiv.«2009.05124».match_type_concentration
+      module: Solution
+      status: proved
+      note: >-
+        All original quantifiers and rounding bounds are retained. Challenge.lean
+        contains the full auditable finite model and imports Mathlib alone.
+
+acknowledgements: >-
+  The mathematical sources, Formal Conjectures contributors, Lean and Mathlib
+  contributors, and the Palomar template and submission tools are credited in
+  docs/provenance.md and NOTICE. Codex helped me formalize the proof in Lean.
