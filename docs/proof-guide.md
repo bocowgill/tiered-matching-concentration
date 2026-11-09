@@ -197,7 +197,7 @@ with $`C_4`$ independent of $`\eta`$. Only the eventual threshold depends on $`\
 Choose a deterministic raw horizon $`H=O(n\log n)`$ large enough that $`\Pr(\tau>H)\le n^{-4}`$. Before raw draw $`t`$, let $`I_t`$ indicate that the process is active and the selected man belongs to $`M`$. If $`\xi_t`$ is the fresh destination, then
 
 ```math
-Z_H\triangleq\sum_{t<H}I_t\bigl(\mathbf1_{\{\xi_t=w\}}-q_w\bigr)
+Z_H\triangleq\sum_{t=0}^{H-1}I_t\bigl(\mathbf{1}_{\{\xi_t=w\}}-q_w\bigr)
 ```
 
 has mean zero. Selection is predictable and the fresh destination has conditional probability $`q_w`$, so martingale differences are orthogonal and $`\mathbb E Z_H^2\le Hq_w`$. Therefore
