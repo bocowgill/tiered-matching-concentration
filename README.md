@@ -1,6 +1,6 @@
 # Concentration of match types in tiered random matching markets
 
-When people agree that some potential partners are more attractive, should we expect the most attractive groups to match mainly with one another? This repository proves a precise large-market result for a model in which attractiveness affects everyone's preferences, alongside independent individual variation. Under men-proposing deferred acceptance, the realized table of matches between groups approaches the product of the groups' population shares.
+This repository proves concentration of match types in balanced random matching markets with a fixed finite tier structure. With independent popularity-based preferences and fixed positive tier shares and scores, the fraction of couples joining any two tiers converges in probability to the product of their population shares under men-proposing deferred acceptance.
 
 The result resolves the concentration statement posed in Remark H.1 of [*Tiered Random Matching Markets: Rank Is Proportional to Popularity* (2021)](https://arxiv.org/abs/2009.05124v2). This repository contains the Lean proof of the exact formulation in [Formal Conjectures PR #7841](https://github.com/google-deepmind/formal-conjectures/pull/7841).
 
@@ -43,6 +43,18 @@ The source's Theorem 5.2 addresses a fixed woman's probability of matching to a 
 
 The formal proof constructs independent exponential-arrival streams with exactly the original ranking law. It proves the fixed-woman proposal-count estimate needed from Proposition G.2, uniformly over the allowed rounded populations. It then couples actual outcomes to independent reference outcomes. Concentration of the reference averages and a vanishing coupling error yield the claimed table. [The proof guide](docs/proof-guide.md) explains these steps and links them to the Lean modules.
 
+## Supporting results
+
+The proof library also establishes the following results:
+
+| Result | What is proved | Lean source |
+|---|---|---|
+| Exact preference law | The exponential-arrival construction induces exactly the original weighted-ranking profile law, including under adaptive proposal selection. | [ConcreteLaw.lean](TieredMatching/ConcreteLaw.lean) |
+| Uniform proposal counts | For a fixed woman, proposal counts from each men's tier concentrate around their logarithmic scale, with uniformity over the allowed rounded populations. | [G2Assembly.lean](TieredMatching/G2Assembly.lean) |
+| Transfer to actual matches | A coupling to independent reference outcomes transfers proposal-count concentration to concentration of the realized match table. | [FinalCoupling.lean](TieredMatching/FinalCoupling.lean) |
+
+These are supporting results in the Lean library. The main theorem selected by [comparator.json](comparator.json) is [`TieredMatching.match_type_concentration`](Solution.lean); the supporting results are not separate Comparator selections.
+
 ## Reading and checking the repository
 
 No knowledge of Lean is needed to read the explanation above. For further detail:
@@ -61,19 +73,16 @@ Install [elan](https://github.com/leanprover/elan), then run from this directory
 
 ```sh
 lake exe cache get
-lake --wfail build
+lake --wfail build TieredMatching Challenge Solution Verification
 lake env lean Verification.lean
 lake comparator --config comparator.json
 ```
 
 The project pins Lean 4.35.0 and its matching Mathlib revision. The only permitted axioms are Lean's standard `propext`, `Classical.choice`, and `Quot.sound`. The [Palomar preflight workflow](.github/workflows/palomar-preflight.yml) runs their complete mechanical checks against the exact commit. A local build is not a substitute for that workflow or for Palomar review.
 
+The code is licensed under [Apache-2.0](LICENSE); see [NOTICE](NOTICE) for reused source provenance.
+
 ## Notes
 
-Codex helped me formalize the proof in Lean. The assistance included writing and checking Lean code, locating library results, and auditing statement alignment. This repository supplies the formal development and an introduction to the result.
-
+Codex helped me formalize the proof in Lean.
 A paper presenting the proof is forthcoming.
-
-The work builds on the source authors' model and probabilistic analysis, the Formal Conjectures statement and finite matching definitions, and Mathlib. Sources and their roles are recorded in [the provenance account](docs/provenance.md). No claim of priority over all subsequent literature or independent human peer review is made here.
-
-The code is licensed under [Apache-2.0](LICENSE); see [NOTICE](NOTICE) for reused source provenance.
