@@ -2,7 +2,7 @@
 
 This repository proves concentration of match types in balanced random matching markets with a fixed finite tier structure. With independent popularity-based preferences and fixed positive tier shares and scores, the fraction of couples joining any two tiers converges in probability to the product of their population shares under men-proposing deferred acceptance.
 
-The result resolves the concentration statement posed in Remark H.1 of [*Tiered Random Matching Markets: Rank Is Proportional to Popularity* (2021)](https://arxiv.org/abs/2009.05124v2). This repository contains the Lean proof of the exact formulation in [Formal Conjectures PR #7841](https://github.com/google-deepmind/formal-conjectures/pull/7841).
+The result resolves the concentration statement posed in Remark H.1 of [*Tiered Random Matching Markets: Rank Is Proportional to Popularity* (2021)](https://arxiv.org/abs/2009.05124v2), by Itai Ashlagi, Mark Braverman, Amin Saberi, Clayton Thomas, and Geng Zhao. This repository contains the Lean proof of the exact formulation in [Formal Conjectures PR #7841](https://github.com/google-deepmind/formal-conjectures/pull/7841).
 
 ## The economic question
 
