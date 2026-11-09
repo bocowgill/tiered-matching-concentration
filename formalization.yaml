@@ -81,7 +81,7 @@ status:
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
   main_results:
-    - declaration: Arxiv.«2009.05124».match_type_concentration
+    - declaration: Ashlagi.match_type_concentration
       file: Solution.lean
       sorry_count: 0
       axioms: [propext, Classical.choice, Quot.sound]
@@ -131,10 +131,10 @@ review:
     registration is claimed. See docs/provenance.md.
 
 alignment:
-  namespace: Arxiv.«2009.05124»
+  namespace: Ashlagi
   statements:
     - source: "Ashlagi et al. (2021), Remark H.1; exact statement in Formal Conjectures PR 7841"
-      lean: Arxiv.«2009.05124».match_type_concentration
+      lean: Ashlagi.match_type_concentration
       module: Solution
       status: proved
       note: >-

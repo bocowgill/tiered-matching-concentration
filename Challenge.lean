@@ -276,7 +276,7 @@ namespace Arxiv.«2009.05124»
 /-- The realized table of match types converges to the product of tier shares.
 All shares, scores and tier counts are fixed before the limit; the conclusion
 holds for every pair of tier-label sequences satisfying the rounding bounds. -/
-theorem match_type_concentration
+theorem _root_.Ashlagi.match_type_concentration
     (I J : ℕ) (a : Fin I → ℝ) (b : Fin J → ℝ)
     (ha : ∀ i, 0 < a i) (hb : ∀ j, 0 < b j)
     (ha_sum : ∑ i, a i = 1) (hb_sum : ∑ j, b j = 1)

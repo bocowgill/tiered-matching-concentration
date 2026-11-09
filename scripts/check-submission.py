@@ -14,7 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def statement(text: str) -> str:
-    start = text.index("theorem match_type_concentration\n")
+    header = re.search(r"theorem (?:_root_\.Ashlagi\.)?match_type_concentration\n", text)
+    assert header, "Missing concentration theorem"
+    start = header.end()
     end = text.index(" := by", start)
     return " ".join(text[start:end].split())
 

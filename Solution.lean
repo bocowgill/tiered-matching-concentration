@@ -20,7 +20,7 @@ open scoped Topology NNReal
 namespace Arxiv.«2009.05124»
 
 /-- Match-type concentration for every allowed rounded sequence of markets. -/
-theorem match_type_concentration
+theorem _root_.Ashlagi.match_type_concentration
     (I J : ℕ) (a : Fin I → ℝ) (b : Fin J → ℝ)
     (ha : ∀ i, 0 < a i) (hb : ∀ j, 0 < b j)
     (ha_sum : ∑ i, a i = 1) (hb_sum : ∑ j, b j = 1)
