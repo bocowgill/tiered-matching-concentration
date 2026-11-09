@@ -1,4 +1,4 @@
-name = "ashlagi_match_types"
+name = "tiered_matching_concentration"
 version = "0.1.0"
 defaultTargets = ["Challenge", "Solution", "Verification"]
 
@@ -20,8 +20,8 @@ name = "FormalConjectures"
 globs = ["FormalConjectures.+"]
 
 [[lean_lib]]
-name = "Ashlagi"
-globs = ["Ashlagi.+"]
+name = "TieredMatching"
+globs = ["TieredMatching.+"]
 
 [[lean_lib]]
 name = "Challenge"

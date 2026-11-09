@@ -16,15 +16,13 @@ The formal starting point is [Formal Conjectures PR #7841](https://github.com/go
 
 The finite profile, weighted-ranking, and deferred-acceptance definitions are reused from that commit. They are retained under their source namespaces in `MarketModel.lean`, with compatibility imports at their original module paths in `FormalConjecturesForMathlib/` and `FormalConjectures/`. The repository includes only the needed model modules, rather than the larger conjecture collection. The original admitted theorem is not imported by the proof.
 
-`Challenge.lean` reproduces the finite model in one Mathlib-only file. `Solution.lean` independently states the same theorem and supplies the completed proof through `Ashlagi.Complete.match_type_concentration`. The selected Comparator declaration is `Ashlagi.match_type_concentration`, a canonical name accepted by Palomar's selector. It retains the original type and quantifiers; only the exported name differs.
+`Challenge.lean` reproduces the finite model in one Mathlib-only file. `Solution.lean` independently states the same theorem and supplies the completed proof through `TieredMatching.Complete.match_type_concentration`. The selected Comparator declaration is `TieredMatching.match_type_concentration`, a canonical name accepted by Palomar's selector. It retains the original type and quantifiers; only the exported name differs.
 
 The development was first checked with Lean 4.33.1. The submission repository ports it to Lean 4.35.0 with matching Mathlib. Porting updates renamed lemmas and measurability interfaces. Mathlib no longer supplies the old uniform probability-mass-function constructor; its occurrences are expressed using `PMF.ofFintype` with constant mass equal to the reciprocal cardinality, preserving the uniform distribution and the zero-weight fallback. Positive scores are required by the theorem. The source theorem's assumptions and conclusion are unchanged.
 
 ## Production and review
 
 Bo Cowgill is the responsible author and maintainer. Codex helped me formalize the proof in Lean. Its role included Lean implementation, library search, compiler-guided checking, and audits of probability-law and statement alignment. Automated review examined the exponential-arrival law, the proposal estimates and their uniformity, and the final composition. These checks are distinct from human peer review; no independent human peer-review endorsement is claimed.
-
-A paper presenting the proof is forthcoming. No publication date, venue, or unavailable manuscript is offered as evidence for the formal claim.
 
 ## What the verification establishes
 

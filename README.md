@@ -1,10 +1,8 @@
 # Concentration of match types in tiered random matching markets
 
-**Bo Cowgill. A paper presenting the proof is forthcoming.**
-
 When people agree that some potential partners are more attractive, should we expect the most attractive groups to match mainly with one another? This repository proves a precise large-market result for a model in which attractiveness affects everyone's preferences, alongside independent individual variation. Under men-proposing deferred acceptance, the realized table of matches between groups approaches the product of the groups' population shares.
 
-The result resolves the concentration statement posed in Remark H.1 of [Ashlagi, Braverman, Saberi, Thomas and Zhao, *Tiered Random Matching Markets: Rank Is Proportional to Popularity* (2021)](https://arxiv.org/abs/2009.05124v2). This repository contains the Lean proof of the exact formulation in [Formal Conjectures PR #7841](https://github.com/google-deepmind/formal-conjectures/pull/7841). It is prepared for Palomar; it has not been submitted or registered.
+The result resolves the concentration statement posed in Remark H.1 of [*Tiered Random Matching Markets: Rank Is Proportional to Popularity* (2021)](https://arxiv.org/abs/2009.05124v2). This repository contains the Lean proof of the exact formulation in [Formal Conjectures PR #7841](https://github.com/google-deepmind/formal-conjectures/pull/7841). It is prepared for Palomar; it has not been submitted or registered.
 
 ## The economic question
 
@@ -18,14 +16,14 @@ For economists, this is a popularity-based random preference model, with sequent
 
 ## What is proved
 
-Let (a_i) be the population share of women's tier (i), and (b_j) the share of men's tier (j). Let (X_{ij}^{(n)}) count couples between those tiers in a market with (n) participants on each side. Then, for every fixed pair of tiers and every (arepsilon>0),
+Let $a_i$ be the population share of women's tier $i$, and $b_j$ the share of men's tier $j$. Let $X_{ij}^{(n)}$ count couples between those tiers in a market with $n$ participants on each side. Then, for every fixed pair of tiers and every $\varepsilon>0$,
 
 $$
 \Pr\!\left(\left|\frac{X_{ij}^{(n)}}{n}-a_i b_j\right|\leq\varepsilon\right)
 \longrightarrow 1.
 $$
 
-All tier shares and scores are fixed and strictly positive as (n) grows. Each side has a fixed finite number of tiers. Integer tier sizes may differ from their prescribed shares times (n) by at most one. The conclusion holds for every sequence of tier labels satisfying those bounds. Since there are only finitely many cells, the entire table also converges jointly by a finite union bound; the recorded Lean theorem states the result for each cell.
+All tier shares and scores are fixed and strictly positive as $n$ grows. Each side has a fixed finite number of tiers. Integer tier sizes may differ from their prescribed shares times $n$ by at most one. The conclusion holds for every sequence of tier labels satisfying those bounds. Since there are only finitely many cells, the entire table also converges jointly by a finite union bound; the recorded Lean theorem states the result for each cell.
 
 For example, suppose women's tier shares are 60% and 40%, and men's are 30% and 70%. The limiting table, expressed as shares of **all couples**, is:
 
@@ -54,7 +52,7 @@ No knowledge of Lean is needed to read the explanation above. For further detail
 - [Provenance and production account](docs/provenance.md): sources, attribution, review, and scope.
 - [Literature context](docs/literature.md): the concentration question and related results.
 - [Challenge.lean](Challenge.lean): the complete auditable model and theorem statement; imports Mathlib alone.
-- [Solution.lean](Solution.lean): the same statement with its proof, importing the substantive development in [Ashlagi/](Ashlagi/).
+- [Solution.lean](Solution.lean): the same statement with its proof, importing the substantive development in [TieredMatching/](TieredMatching/).
 - [formalization.yaml](formalization.yaml): structured metadata for Palomar.
 
 Lean is a proof assistant: it checks that a proof term has the stated type. Palomar's Comparator checks that the proved declaration implements the independently compiled statement, with only the permitted axioms. The deliberate `sorry` in `Challenge.lean` marks the question to be compared; the Solution and its proof dependencies contain no unresolved proof holes.
@@ -70,9 +68,11 @@ lake comparator --config comparator.json
 
 The project pins Lean 4.35.0 and its matching Mathlib revision. The only permitted axioms are Lean's standard `propext`, `Classical.choice`, and `Quot.sound`. The [Palomar preflight workflow](.github/workflows/palomar-preflight.yml) runs their complete mechanical checks against the exact commit. A local build is not a substitute for that workflow or for Palomar review.
 
-## Authorship and forthcoming paper
+## About this formalization
 
-Codex helped me formalize the proof in Lean. The assistance included writing and checking Lean code, locating library results, and auditing statement alignment. A paper presenting the proof is forthcoming. This repository supplies the formal development and an introduction to the result.
+Codex helped me formalize the proof in Lean. The assistance included writing and checking Lean code, locating library results, and auditing statement alignment. This repository supplies the formal development and an introduction to the result.
+
+A paper presenting the proof is forthcoming.
 
 The work builds on the source authors' model and probabilistic analysis, the Formal Conjectures statement and finite matching definitions, and Mathlib. Sources and their roles are recorded in [the provenance account](docs/provenance.md). No claim of priority over all subsequent literature or independent human peer review is made here.
 

@@ -20,9 +20,8 @@ The model definitions are copied from Formal Conjectures PR 7841, commit
 9f2a84284e69f992c113f894869cd7cdf292390f. The statement below is its exact
 match_type_concentration statement. See README.md and docs/statement.md.
 
-Source: Ashlagi, Braverman, Saberi, Thomas and Zhao (2021),
-Tiered Random Matching Markets: Rank Is Proportional to Popularity,
-arXiv:2009.05124v2, Remark H.1. A paper presenting the proof is forthcoming.
+Source: Tiered Random Matching Markets: Rank Is Proportional to Popularity
+(2021), arXiv:2009.05124v2, Remark H.1. Full citation: docs/provenance.md.
 -/
 
 @[expose] public section
@@ -276,7 +275,7 @@ namespace Arxiv.«2009.05124»
 /-- The realized table of match types converges to the product of tier shares.
 All shares, scores and tier counts are fixed before the limit; the conclusion
 holds for every pair of tier-label sequences satisfying the rounding bounds. -/
-theorem _root_.Ashlagi.match_type_concentration
+theorem _root_.TieredMatching.match_type_concentration
     (I J : ℕ) (a : Fin I → ℝ) (b : Fin J → ℝ)
     (ha : ∀ i, 0 < a i) (hb : ∀ j, 0 < b j)
     (ha_sum : ∑ i, a i = 1) (hb_sum : ∑ j, b j = 1)

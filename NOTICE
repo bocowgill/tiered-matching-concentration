@@ -6,13 +6,14 @@ google-deepmind/formal-conjectures, PR 7841, commit
 Copyright 2026 The Formal Conjectures Authors.
 Licensed under the Apache License, Version 2.0.
 
-The Lean proof development is included in Ashlagi/. Original copyright
+The Lean proof development is included in TieredMatching/. Original copyright
 headers are preserved. Repository documentation and submission packaging
 are by Bo Cowgill, with Codex assistance in formalizing the proof in Lean.
 
-The mathematical source is Ashlagi, Braverman, Saberi, Thomas and Zhao,
-Tiered Random Matching Markets: Rank Is Proportional to Popularity (2021),
-arXiv:2009.05124v2. Citing this source does not relicense the paper.
+The mathematical source is Tiered Random Matching Markets: Rank Is
+Proportional to Popularity (2021), arXiv:2009.05124v2. Full bibliographic
+credits appear in docs/provenance.md. Citing this source does not relicense
+the paper.
 
 The source-checking and metadata-validation scripts are adapted from
 PalomarRegistry/PalomarTemplate (Apache-2.0). Mathlib and other external

@@ -1,6 +1,6 @@
 # How the proof works
 
-The final theorem is assembled in [Complete.lean](../Ashlagi/Complete.lean), and exposed for comparison in [Solution.lean](../Solution.lean). This guide describes the actual proof architecture. Supporting estimates are proved in Lean; Proposition G.2 is not an additional assumption of the final theorem.
+The final theorem is assembled in [Complete.lean](../TieredMatching/Complete.lean), and exposed for comparison in [Solution.lean](../Solution.lean). This guide describes the actual proof architecture. Supporting estimates are proved in Lean; Proposition G.2 is not an additional assumption of the final theorem.
 
 ## 1. Represent preferences without changing their law
 
@@ -8,7 +8,7 @@ Give each candidate an independent exponential clock whose rate is the candidate
 
 The proposal process reveals preferences adaptively. To use independent arrival streams, one must also show that assigning fresh randomness as the process runs preserves the joint law, and that the terminal prefixes correspond to the actual proposers. These are law and process identities, not informal independence assumptions.
 
-Start with [IIDRanking.lean](../Ashlagi/IIDRanking.lean), [AdaptiveExposure.lean](../Ashlagi/AdaptiveExposure.lean), [ArrivalPolicy.lean](../Ashlagi/ArrivalPolicy.lean), [ArrivalPrefixes.lean](../Ashlagi/ArrivalPrefixes.lean), and [ConcreteLaw.lean](../Ashlagi/ConcreteLaw.lean). The latter contains `Ashlagi.Arrival.concreteArrivalProfile_market_law`.
+Start with [IIDRanking.lean](../TieredMatching/IIDRanking.lean), [AdaptiveExposure.lean](../TieredMatching/AdaptiveExposure.lean), [ArrivalPolicy.lean](../TieredMatching/ArrivalPolicy.lean), [ArrivalPrefixes.lean](../TieredMatching/ArrivalPrefixes.lean), and [ConcreteLaw.lean](../TieredMatching/ConcreteLaw.lean). The latter contains `TieredMatching.Arrival.concreteArrivalProfile_market_law`.
 
 ## 2. Prove proposal-count concentration uniformly
 
@@ -23,7 +23,7 @@ The proof analyzes proposal streams with repeats, erases repeats to recover defe
 
 Uniformity matters because actual finite-population shares differ from their limiting values. The estimates are uniform on a positive neighborhood of the fixed limiting shares. Finite-population coefficients are then compared with the limiting coefficients. Scaling removes the auxiliary score normalization. No rate constant is silently allowed to depend on `n` through its rounded populations.
 
-The principal entry points are [GlobalPairMoments.lean](../Ashlagi/GlobalPairMoments.lean), [G2Rounding.lean](../Ashlagi/G2Rounding.lean), [G2Scaling.lean](../Ashlagi/G2Scaling.lean), [G2Coefficients.lean](../Ashlagi/G2Coefficients.lean), and [G2Assembly.lean](../Ashlagi/G2Assembly.lean). The last supplies `uniform_vector_g2`, `uniform_g2_bound`, and `proposition_g2`.
+The principal entry points are [GlobalPairMoments.lean](../TieredMatching/GlobalPairMoments.lean), [G2Rounding.lean](../TieredMatching/G2Rounding.lean), [G2Scaling.lean](../TieredMatching/G2Scaling.lean), [G2Coefficients.lean](../TieredMatching/G2Coefficients.lean), and [G2Assembly.lean](../TieredMatching/G2Assembly.lean). The last supplies `uniform_vector_g2`, `uniform_g2_bound`, and `proposition_g2`.
 
 ## 3. Build independent reference outcomes
 
@@ -31,7 +31,7 @@ For each woman, take deterministic prefixes of the independent arrival streams, 
 
 Multiplying the prefix size by the exponential rate `βⱼ` cancels the factor `1/βⱼ` in `cᵢⱼ`. The reference winning-tier probability therefore tends to `bⱼ`. Averaging reference indicators over women's tier `i` gives a quantity whose expectation tends to `aᵢbⱼ` and whose variance is at most `1/(4n)`.
 
-See [ReferenceModel.lean](../Ashlagi/ReferenceModel.lean), [ReferenceRace.lean](../Ashlagi/ReferenceRace.lean), and [RowIndependence.lean](../Ashlagi/RowIndependence.lean).
+See [ReferenceModel.lean](../TieredMatching/ReferenceModel.lean), [ReferenceRace.lean](../TieredMatching/ReferenceRace.lean), and [RowIndependence.lean](../TieredMatching/RowIndependence.lean).
 
 ## 4. Transfer concentration to the actual matching
 
@@ -39,4 +39,4 @@ Proposition G.2 places the actual terminal proposal prefixes between determinist
 
 This comparison handles the dependence between a woman's stopping prefixes and her revealed preferences. It does not condition on the actual set of proposers and then presume independence. The expected fraction of actual outcomes that disagree with the independent reference outcomes tends to zero. Markov's inequality transfers reference concentration to the actual match table.
 
-See [ArrivalBands.lean](../Ashlagi/ArrivalBands.lean), [ArrivalWinner.lean](../Ashlagi/ArrivalWinner.lean), [Transfer.lean](../Ashlagi/Transfer.lean), and [FinalCoupling.lean](../Ashlagi/FinalCoupling.lean). [Complete.lean](../Ashlagi/Complete.lean) supplies the proved G.2 estimate to finish the exact PR statement.
+See [ArrivalBands.lean](../TieredMatching/ArrivalBands.lean), [ArrivalWinner.lean](../TieredMatching/ArrivalWinner.lean), [Transfer.lean](../TieredMatching/Transfer.lean), and [FinalCoupling.lean](../TieredMatching/FinalCoupling.lean). [Complete.lean](../TieredMatching/Complete.lean) supplies the proved G.2 estimate to finish the exact PR statement.

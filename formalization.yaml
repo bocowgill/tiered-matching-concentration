@@ -13,11 +13,10 @@ project:
     a_i b_j. The theorem allows arbitrary tier-label sequences whose counts
     differ from n times their prescribed shares by at most one. It proves the
     exact statement of Formal Conjectures PR 7841, corresponding to Remark H.1
-    of Ashlagi, Braverman, Saberi, Thomas and Zhao (2021). The development proves
+    in Tiered Random Matching Markets (2021). The development proves
     the exponential-arrival representation of the exact profile law, the
     fixed-woman proposal estimate needed from Proposition G.2 with rounding
     uniformity, and the independent reference coupling used for concentration.
-    A paper presenting the proof is forthcoming.
   authors: [Bo Cowgill]
   responsible_maintainers: [Bo Cowgill]
   license: Apache-2.0
@@ -76,12 +75,12 @@ status:
     acceptance in balanced one-to-one complete-list markets with fixed positive
     parameters. It does not assert a finite-market rate, almost-sure convergence,
     or a result for every stable matching. The final proof has no unresolved
-    formal obligations. A paper presenting the proof is forthcoming.
+    formal obligations.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
   main_results:
-    - declaration: Ashlagi.match_type_concentration
+    - declaration: TieredMatching.match_type_concentration
       file: Solution.lean
       sorry_count: 0
       axioms: [propext, Classical.choice, Quot.sound]
@@ -110,7 +109,7 @@ automation:
         compiler's kernel check. This is not human peer review.
   notes: >-
     Codex helped me formalize the proof in Lean. Bo Cowgill is the responsible
-    human author and maintainer. A paper presenting the proof is forthcoming.
+    human author and maintainer.
 
 fidelity:
   divergences: >-
@@ -131,10 +130,10 @@ review:
     registration is claimed. See docs/provenance.md.
 
 alignment:
-  namespace: Ashlagi
+  namespace: TieredMatching
   statements:
-    - source: "Ashlagi et al. (2021), Remark H.1; exact statement in Formal Conjectures PR 7841"
-      lean: Ashlagi.match_type_concentration
+    - source: "Tiered Random Matching Markets (2021), Remark H.1; Formal Conjectures PR 7841"
+      lean: TieredMatching.match_type_concentration
       module: Solution
       status: proved
       note: >-

@@ -4,7 +4,7 @@ Licensed under the Apache License, Version 2.0; see LICENSE.
 -/
 module
 
-public import Ashlagi.Complete
+public import TieredMatching.Complete
 
 /-! # Proved match-type concentration
 
@@ -20,7 +20,7 @@ open scoped Topology NNReal
 namespace Arxiv.«2009.05124»
 
 /-- Match-type concentration for every allowed rounded sequence of markets. -/
-theorem _root_.Ashlagi.match_type_concentration
+theorem _root_.TieredMatching.match_type_concentration
     (I J : ℕ) (a : Fin I → ℝ) (b : Fin J → ℝ)
     (ha : ∀ i, 0 < a i) (hb : ∀ j, 0 < b j)
     (ha_sum : ∑ i, a i = 1) (hb_sum : ∑ j, b j = 1)
@@ -33,7 +33,7 @@ theorem _root_.Ashlagi.match_type_concentration
     Tendsto (fun n ↦ (market (womanTier n) (manTier n) α β).toMeasure
       {p | |(matchCount (womanTier n) (manTier n) i j p : ℝ) / n - a i * b j| ≤ ε})
       atTop (𝓝 1) := by
-  exact Ashlagi.Complete.match_type_concentration I J a b ha hb ha_sum hb_sum
+  exact TieredMatching.Complete.match_type_concentration I J a b ha hb ha_sum hb_sum
     α β hα hβ womanTier manTier hw hm i j ε hε
 
 end Arxiv.«2009.05124»

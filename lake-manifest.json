@@ -111,7 +111,7 @@
       "configFile": "lakefile.toml"
     }
   ],
-  "name": "ashlagi_match_types",
+  "name": "tiered_matching_concentration",
   "lakeDir": ".lake",
   "fixedToolchain": false
 }

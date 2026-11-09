@@ -1,6 +1,6 @@
 # The exact statement
 
-The recorded declaration is `Ashlagi.match_type_concentration`. Its type is the exact type of `Arxiv.«2009.05124».match_type_concentration` in the PR; the canonical alias avoids a quoted numeric namespace in Palomar's declaration selector. It is stated independently in [Challenge.lean](../Challenge.lean) and proved in [Solution.lean](../Solution.lean). Its mathematical content is the statement in [Formal Conjectures PR #7841 at commit 9f2a84284e69f992c113f894869cd7cdf292390f](https://github.com/google-deepmind/formal-conjectures/blob/9f2a84284e69f992c113f894869cd7cdf292390f/FormalConjectures/Arxiv/2009.05124/TieredRandomMatching.lean).
+The recorded declaration is `TieredMatching.match_type_concentration`. Its type is the exact type of `Arxiv.«2009.05124».match_type_concentration` in the PR; the canonical alias avoids a quoted numeric namespace in Palomar's declaration selector. It is stated independently in [Challenge.lean](../Challenge.lean) and proved in [Solution.lean](../Solution.lean). Its mathematical content is the statement in [Formal Conjectures PR #7841 at commit 9f2a84284e69f992c113f894869cd7cdf292390f](https://github.com/google-deepmind/formal-conjectures/blob/9f2a84284e69f992c113f894869cd7cdf292390f/FormalConjectures/Arxiv/2009.05124/TieredRandomMatching.lean).
 
 ## Assumptions, in order
 
@@ -21,7 +21,7 @@ L_q(r)=\prod_{k=0}^{n-1}
 \frac{q(r^{-1}(k))}{\sum_{x:\,r(x)\geq k}q(x)}.
 $$
 
-The profile law normalizes the product of these row likelihoods. Men's weights for a woman are her tier's score `α`; women's weights for a man are his tier's score `β`. With positive scores, these are the independent weighted rankings obtained by draws without replacement. [ConcreteLaw.lean](../Ashlagi/ConcreteLaw.lean) proves equality of the exponential-arrival construction with this exact profile law; the proof does not replace it with independent pair assignments.
+The profile law normalizes the product of these row likelihoods. Men's weights for a woman are her tier's score `α`; women's weights for a man are his tier's score `β`. With positive scores, these are the independent weighted rankings obtained by draws without replacement. [ConcreteLaw.lean](../TieredMatching/ConcreteLaw.lean) proves equality of the exponential-arrival construction with this exact profile law; the proof does not replace it with independent pair assignments.
 
 `matchCount` runs the stated men-proposing deferred-acceptance algorithm and counts women of tier `i` whose held proposal at termination comes from a man of tier `j`. The algorithm selects the first unmatched man, in label order, with an untried candidate. It permits at most `n²` proposals. The proof development verifies termination and the matching properties needed for the count.
 

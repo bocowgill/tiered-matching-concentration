@@ -2,7 +2,7 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Ashlagi.match_type_concentration"
+    "TieredMatching.match_type_concentration"
   ],
   "permitted_axioms": [
     "propext",
